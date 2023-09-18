@@ -20,7 +20,7 @@ const Home = () => {
   const [spare, setSpare] = useState([]);
 
   useEffect(() => {
-    axios.get("http://localhost:3001/api/getspares")
+    axios.get("https://unistore.onrender.com/api/getspares")
       .then((res) => {
         setSpare(res.data);
       })

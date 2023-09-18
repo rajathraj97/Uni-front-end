@@ -59,13 +59,13 @@ export default function SignIn() {
 
   const getOtp = async (e) => {
     e.preventDefault();
-    let res = await axios.post("http://localhost:3001/api/login", login);
+    let res = await axios.post("https://unistore.onrender.com/api/login", login);
   };
 
   const generateToken = async (e) => {
     e.preventDefault();
     const res = await axios.post(
-      "http://localhost:3001/api/loginverification",
+      "https://unistore.onrender.com/api/loginverification",
       login
     );
     console.log(res.data);

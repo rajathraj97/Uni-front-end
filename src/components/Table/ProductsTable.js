@@ -32,7 +32,7 @@ import Swal from 'sweetalert2';
       
       if (stock) {
         Swal.fire(`Entered stock: ${stock}`)
-        axios.patch(`http://localhost:3001/api/updateproduct/${cellValues.row._id}`,{stock:stock},{headers:{'Authorization':localStorage.getItem('token')}})
+        axios.patch(`https://unistore.onrender.com/api/updateproduct/${cellValues.row._id}`,{stock:stock},{headers:{'Authorization':localStorage.getItem('token')}})
         .then((res)=>{
           if(res.data.hasOwnProperty("_id")){
             Swal.fire("updated sucessfully")

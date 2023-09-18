@@ -34,7 +34,7 @@ const SpareSeperate = () => {
     setData(storeData);
 
     axios
-      .get(`http://localhost:3001/api/getspares/${params.id}`)
+      .get(`https://unistore.onrender.com/api/getspares/${params.id}`)
       .then((res) => {
         setSpare(res.data);
       })
@@ -42,7 +42,7 @@ const SpareSeperate = () => {
         console.log(err);
       });
     axios
-      .get(`http://localhost:3001/api/getreview/${params.id}`)
+      .get(`https://unistore.onrender.com/api/getreview/${params.id}`)
       .then((res) => {
         setReviews(res.data);
       })

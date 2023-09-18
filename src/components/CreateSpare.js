@@ -36,7 +36,7 @@ const CreateSpare = () => {
 
   React.useEffect(() => {
     axios
-      .get("http://localhost:3001/api/getcategory")
+      .get("https://unistore.onrender.com/api/getcategory")
       .then((res) => {
         setCategory(res.data, "spare category");
       })
@@ -124,7 +124,7 @@ const CreateSpare = () => {
       formData.append("file", file);
 
       axios
-        .post("http://localhost:3001/api/createspare", formData, {
+        .post("https://unistore.onrender.com/api/createspare", formData, {
           headers: {
             Authorization: localStorage.getItem("token"),
             "Content-Type": "multipart/form-data",

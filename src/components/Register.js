@@ -51,7 +51,7 @@ export default function Register() {
 
       case "ADD_USER_TO_DB":
         axios
-          .post("http://localhost:3001/api/register", state)
+          .post("https://unistore.onrender.com/api/register", state)
           .then((res) => {
             console.log(res);
             if (res.status == 200) {
@@ -88,7 +88,7 @@ export default function Register() {
   React.useEffect(() => {
     if (state.email.includes("@")) {
       axios
-        .post("http://localhost:3001/api/findemail", { email: state.email })
+        .post("https://unistore.onrender.com/api/findemail", { email: state.email })
         .then((res) => {
           console.log(res);
           if (res.data.hasOwnProperty("_id")) {

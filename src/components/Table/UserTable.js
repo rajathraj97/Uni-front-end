@@ -36,7 +36,7 @@ const UserTable = () => {
       
       if (body) {
         Swal.fire(`Entered email: ${body},${subject}`)
-        axios.post("http://localhost:3001/api/sendmail",{email:cellValues.row.email,body:body,subject:subject},{headers:{'Authorization':localStorage.getItem('token')}})
+        axios.post("https://unistore.onrender.com/api/sendmail",{email:cellValues.row.email,body:body,subject:subject},{headers:{'Authorization':localStorage.getItem('token')}})
         .then((res)=>{
           if(res.data === "sent"){
             Swal.fire("Sent sucessfully")
@@ -61,7 +61,7 @@ const UserTable = () => {
     
     if (body) {
       Swal.fire(`Entered body: ${body}`)
-      axios.post('http://localhost:3001/api/sendmessage',{message:body,number:parseInt(cellValues.row.number)},{headers:{'Authorization':localStorage.getItem('token')}})
+      axios.post('https://unistore.onrender.com/api/sendmessage',{message:body,number:parseInt(cellValues.row.number)},{headers:{'Authorization':localStorage.getItem('token')}})
       .then((res)=>{
         if(res.data === "success"){
           Swal.fire('Sent sucessfully')
@@ -98,7 +98,7 @@ const UserTable = () => {
     
     if (staff) {
       Swal.fire(`You selected: ${staff}`)
-      axios.patch(`http://localhost:3001/api/updaterole/${cellValues.row._id}`,{role:staff},{headers:{'Authorization':localStorage.getItem('token')}}) 
+      axios.patch(`https://unistore.onrender.com/api/updaterole/${cellValues.row._id}`,{role:staff},{headers:{'Authorization':localStorage.getItem('token')}}) 
       .then((res)=>{
         console.log(res)
       })

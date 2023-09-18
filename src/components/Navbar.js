@@ -100,7 +100,7 @@ export default function Navbar() {
 
   React.useEffect(() => {
     axios
-      .get("http://localhost:3001/api/usersforname")
+      .get("https://unistore.onrender.com/api/usersforname")
       .then((res) => {
         console.log(res);
         setUsers(res.data);
@@ -110,7 +110,7 @@ export default function Navbar() {
       });
 
     axios
-      .get("http://localhost:3001/api/getnotification")
+      .get("https://unistore.onrender.com/api/getnotification")
       .then((res) => {
         console.log(res);
         setNotification(res.data);
@@ -153,12 +153,12 @@ export default function Navbar() {
   const viewedNotification = (notification) => {
     notification.map((ele) => {
       return axios.patch(
-        `http://localhost:3001/api/updatenotification/${ele._id}`,
+        `https://unistore.onrender.com/api/updatenotification/${ele._id}`,
         { headers: { Authorization: localStorage.getItem("token") } }
       );
     });
     axios
-      .get("http://localhost:3001/api/getnotification")
+      .get("https://unistore.onrender.com/api/getnotification")
       .then((res) => {
         console.log(res);
         setNotification(res.data);

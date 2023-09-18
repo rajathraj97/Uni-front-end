@@ -7,7 +7,7 @@ export const getServices = (userData) => {
 
       if (userData.tokendata._id) {
         const service = await axios.get(
-          `http://localhost:3001/api/getservices/${id}`,
+          `https://unistore.onrender.com/api/getservices/${id}`,
           { headers: { Authorization: userData.token } }
         );
 
@@ -23,7 +23,7 @@ export const getServicesRefresh = (id, token) => {
   return async (dispatch) => {
     try {
       const service = await axios.get(
-        `http://localhost:3001/api/getservices/${id}`,
+        `https://unistore.onrender.com/api/getservices/${id}`,
         { headers: { Authorization: token } }
       );
 
@@ -48,7 +48,7 @@ export const addService = (tokendata, formData, globalData) => {
       };
 
       const add = await axios.post(
-        "http://localhost:3001/api/createservice",
+        "https://unistore.onrender.com/api/createservice",
         postData,
         { headers: { Authorization: token } }
       );

@@ -20,7 +20,7 @@ const SpareTable = () => {
       Swal.fire(`Entered stock: ${stock}`);
       axios
         .patch(
-          `http://localhost:3001/api/updatespare/${cellValues.row._id}`,
+          `https://unistore.onrender.com/api/updatespare/${cellValues.row._id}`,
           { stock: stock },
           { headers: { Authorization: localStorage.getItem("token") } }
         )
@@ -45,7 +45,7 @@ const SpareTable = () => {
       if (result.isConfirmed) {
         axios
           .delete(
-            `http://localhost:3001/api/deletespare/${cellValues.row._id}`,
+            `https://unistore.onrender.com/api/deletespare/${cellValues.row._id}`,
             { headers: { Authorization: localStorage.getItem("token") } }
           )
           .then((res) => {
@@ -116,7 +116,7 @@ const SpareTable = () => {
   console.log(spares, "spares table");
   React.useEffect(() => {
     axios
-      .get("http://localhost:3001/api/getspares")
+      .get("https://unistore.onrender.com/api/getspares")
       .then((res) => {
         setSpares(res.data);
       })

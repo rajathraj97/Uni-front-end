@@ -26,7 +26,7 @@ const Success = () => {
     dispatch(getItems());
     setToggle(!toggle);
     axios
-      .post("http://localhost:3001/api/createnotification", {
+      .post("https://unistore.onrender.com/api/createnotification", {
         notification: "Order-Created",
         userid: globaldata._id,
       })
@@ -63,7 +63,7 @@ const Success = () => {
     console.log("executed once");
     axios
       .post(
-        "http://localhost:3001/api/createorder",
+        "https://unistore.onrender.com/api/createorder",
         {
           products: reducedData,
           userid: globaldata._id,
@@ -80,7 +80,7 @@ const Success = () => {
       });
     data.map((ele) => {
       axios.patch(
-        `http://localhost:3001/api/updatequantityproduct/${ele.productid}`,
+        `https://unistore.onrender.com/api/updatequantityproduct/${ele.productid}`,
         { quantity: ele.quantity }
       );
     });
@@ -90,7 +90,7 @@ const Success = () => {
     setTimeout(() => {
       axios
         .delete(
-          `http://localhost:3001/api/deleteafterpayment/${globaldata._id}`
+          `https://unistore.onrender.com/api/deleteafterpayment/${globaldata._id}`
         )
         .then((res) => {
           console.log(res);

@@ -29,7 +29,7 @@ const MyOrders = () => {
     console.log(globalData, "globaldata");
     axios
       .get(
-        `http://localhost:3001/api/getonedata/${
+        `https://unistore.onrender.com/api/getonedata/${
           JSON.parse(localStorage.getItem("globaldata"))._id
         }`,
         { headers: { Authorization: localStorage.getItem("token") } }
@@ -66,7 +66,7 @@ const MyOrders = () => {
   const handelClick = (CellValue, globalData, rating) => {
     axios
       .post(
-        "http://localhost:3001/api/createreview",
+        "https://unistore.onrender.com/api/createreview",
         {
           productid: CellValue.row.productid,
           userid: globalData.tokendata._id,
@@ -85,7 +85,7 @@ const MyOrders = () => {
       });
     axios
       .patch(
-        `http://localhost:3001/api/updateorder/${CellValue.row.originalid}`,
+        `https://unistore.onrender.com/api/updateorder/${CellValue.row.originalid}`,
         { reviewed: true },
         { headers: { Authorization: localStorage.getItem("token") } }
       )

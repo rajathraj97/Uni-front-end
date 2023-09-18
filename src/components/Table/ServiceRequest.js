@@ -25,14 +25,14 @@ import { MdPendingActions } from 'react-icons/md'
       switch (action.type){
         case "ACCEPT_SERVICE":{
           console.log(action.value)
-          axios.patch(`http://localhost:3001/api/updateservice/${action.value.row._id}`,{serviceAccepted:true,productRecived:true},{headers:{'Authorization':localStorage.getItem('token')}})
+          axios.patch(`https://unistore.onrender.com/${action.value.row._id}`,{serviceAccepted:true,productRecived:true},{headers:{'Authorization':localStorage.getItem('token')}})
           .then((res)=>{
             console.log(res)
           })
           .catch((err)=>{
             console.log(err)
           })
-          axios.get('http://localhost:3001/api/getservices',{headers:{'Authorization':localStorage.getItem('token')}})
+          axios.get('https://unistore.onrender.com/api/getservices',{headers:{'Authorization':localStorage.getItem('token')}})
           .then((res)=>{
             console.log(res.data)
             setData(res.data)
@@ -43,14 +43,14 @@ import { MdPendingActions } from 'react-icons/md'
           break;
         }
           case "DECLINE_SERVICE":{
-          axios.patch(`http://localhost:3001/api/updateservice/${action.value.row._id}`,{serviceDeclined:true},{headers:{'Authorization':localStorage.getItem('token')}})
+          axios.patch(`https://unistore.onrender.com/api/updateservice/${action.value.row._id}`,{serviceDeclined:true},{headers:{'Authorization':localStorage.getItem('token')}})
           .then((res)=>{
             console.log(res)
           })
           .catch((err)=>{
             console.log(err)
           })
-          axios.get('http://localhost:3001/api/getservices',{headers:{'Authorization':localStorage.getItem('token')}})
+          axios.get('https://unistore.onrender.com/api/getservices',{headers:{'Authorization':localStorage.getItem('token')}})
           .then((res)=>{
             console.log(res.data)
             setData(res.data)
@@ -71,14 +71,14 @@ import { MdPendingActions } from 'react-icons/md'
             
             if (email) {
               Swal.fire(`Entered amount: ${email}`)
-          axios.patch(`http://localhost:3001/api/updateservice/${action.value.row._id}`,{price:parseInt(email)},{headers:{'Authorization':localStorage.getItem('token')}})
+          axios.patch(`https://unistore.onrender.com/api/updateservice/${action.value.row._id}`,{price:parseInt(email)},{headers:{'Authorization':localStorage.getItem('token')}})
           .then((res)=>{
             console.log(res)
           })
           .catch((err)=>{
             console.log(err)
           })
-          axios.get('http://localhost:3001/api/getservices',{headers:{'Authorization':localStorage.getItem('token')}})
+          axios.get('https://unistore.onrender.com/api/getservices',{headers:{'Authorization':localStorage.getItem('token')}})
           .then((res)=>{
             console.log(res.data)
             setData(res.data)
@@ -91,14 +91,14 @@ import { MdPendingActions } from 'react-icons/md'
           }
 
           case "SERVICE_COMPLETED" :{
-            axios.patch(`http://localhost:3001/api/updateservice/${action.value.row._id}`,{diagnose:true,repaired:true},{headers:{'Authorization':localStorage.getItem('token')}})
+            axios.patch(`https://unistore.onrender.com/api/updateservice/${action.value.row._id}`,{diagnose:true,repaired:true},{headers:{'Authorization':localStorage.getItem('token')}})
           .then((res)=>{
             console.log(res)
           })
           .catch((err)=>{
             console.log(err)
           })
-          axios.get('http://localhost:3001/api/getservices',{headers:{'Authorization':localStorage.getItem('token')}})
+          axios.get('https://unistore.onrender.com/api/getservices',{headers:{'Authorization':localStorage.getItem('token')}})
           .then((res)=>{
             console.log(res.data)
             setData(res.data)
@@ -119,14 +119,14 @@ import { MdPendingActions } from 'react-icons/md'
             
             if (trackingnumber) {
               Swal.fire(`Entered trackingNumber: ${trackingnumber}`)
-              axios.patch(`http://localhost:3001/api/updateservice/${action.value.row._id}`,{shippingid:trackingnumber},{headers:{'Authorization':localStorage.getItem('token')}})
+              axios.patch(`https://unistore.onrender.com/api/updateservice/${action.value.row._id}`,{shippingid:trackingnumber},{headers:{'Authorization':localStorage.getItem('token')}})
               .then((res)=>{
                 console.log(res)
               })
               .catch((err)=>{
                 console.log(err)
               })
-              axios.get('http://localhost:3001/api/getservices',{headers:{'Authorization':localStorage.getItem('token')}})
+              axios.get('https://unistore.onrender.com/api/getservices',{headers:{'Authorization':localStorage.getItem('token')}})
               .then((res)=>{
                 console.log(res.data)
                 setData(res.data)
@@ -149,7 +149,7 @@ import { MdPendingActions } from 'react-icons/md'
 
 
     React.useEffect(()=>{
-      axios.get('http://localhost:3001/api/getservices',{headers:{'Authorization':localStorage.getItem('token')}})
+      axios.get('https://unistore.onrender.com/api/getservices',{headers:{'Authorization':localStorage.getItem('token')}})
       .then((res)=>{
         console.log(res.data)
         setData(res.data)
@@ -157,7 +157,7 @@ import { MdPendingActions } from 'react-icons/md'
       .catch((err)=>{
         console.log(err)
       })
-      axios.get('http://localhost:3001/api/getusers',{headers:{'Authorization':localStorage.getItem('token')}})
+      axios.get('https://unistore.onrender.com/api/getusers',{headers:{'Authorization':localStorage.getItem('token')}})
       .then((res)=>{
         setUser(res.data)
       })

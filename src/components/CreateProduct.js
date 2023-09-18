@@ -72,7 +72,7 @@ const CreateProduct = () => {
 
   React.useEffect(() => {
     axios
-      .get("http://localhost:3001/api/getsubcategory")
+      .get("https://unistore.onrender.com/api/getsubcategory")
       .then((res) => {
         console.log(res, "in promise,create");
         setSubCategory(res.data);
@@ -85,7 +85,7 @@ const CreateProduct = () => {
 
   React.useEffect(() => {
     axios
-      .get("http://localhost:3001/api/getbrands")
+      .get("https://unistore.onrender.com/api/getbrands")
       .then((res) => {
         console.log(res, "brand");
         setBrand(res.data);
@@ -129,7 +129,7 @@ const CreateProduct = () => {
           formData.append("file", file);
 
           axios
-            .post("http://localhost:3001/api/createproduct", formData, {
+            .post("https://unistore.onrender.com/api/createproduct", formData, {
               headers: {
                 Authorization: localStorage.getItem("token"),
                 "Content-Type": "multipart/form-data",
@@ -177,7 +177,7 @@ const CreateProduct = () => {
       Swal.fire(`Entered email: ${category}`);
       axios
         .post(
-          "http://localhost:3001/api/createcategory",
+          "https://unistore.onrender.com/api/createcategory",
           { category: category },
           { headers: { Authorization: globalData.token } }
         )
@@ -185,7 +185,7 @@ const CreateProduct = () => {
           if (res.data.hasOwnProperty("_id")) {
             Swal.fire("Added sucessfully");
             axios
-              .get("http://localhost:3001/api/getcategory")
+              .get("https://unistore.onrender.com/api/getcategory")
               .then((res) => {
                 setCategory1(res.data);
               })
@@ -212,7 +212,7 @@ const CreateProduct = () => {
       Swal.fire(`Entered email: ${SubCategory}`);
       axios
         .post(
-          "http://localhost:3001/api/createsubcategory",
+          "https://unistore.onrender.com/api/createsubcategory",
           { subCategory: SubCategory },
           { headers: { Authorization: globalData.token } }
         )
@@ -220,7 +220,7 @@ const CreateProduct = () => {
           if (res.data.hasOwnProperty("_id")) {
             Swal.fire("added sucessfully");
             axios
-              .get("http://localhost:3001/api/getsubcategory")
+              .get("https://unistore.onrender.com/api/getsubcategory")
               .then((res) => {
                 setSubCategory(res.data);
               })
@@ -247,7 +247,7 @@ const CreateProduct = () => {
       Swal.fire(`Entered Brand: ${Brand}`);
       axios
         .post(
-          "http://localhost:3001/api/createbrand",
+          "https://unistore.onrender.com/api/createbrand",
           { brand: Brand },
           { headers: { Authorization: globalData.token } }
         )

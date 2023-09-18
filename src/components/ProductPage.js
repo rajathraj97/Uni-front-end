@@ -24,7 +24,7 @@ const ProductPage = () => {
   useEffect(() => {
     setData(storeData);
     axios
-      .get(`http://localhost:3001/api/getreview/${params.id}`)
+      .get(`https://unistore.onrender.com/api/getreview/${params.id}`)
       .then((res) => {
         setReviews(res.data);
       })
@@ -45,7 +45,7 @@ const ProductPage = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:3001/api/getoneproduct/${params.id}`)
+      .get(`https://unistore.onrender.com/api/getoneproduct/${params.id}`)
       .then((res) => {
         setProduct(res.data);
       })

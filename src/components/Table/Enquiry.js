@@ -9,7 +9,7 @@ const Enquiry = () =>{
     console.log(data,'enquiry data')
 
     React.useEffect(()=>{
-        axios.get('http://localhost:3001/api/getenquiry',{headers:{'Authorization':localStorage.getItem('token')}})
+        axios.get('https://unistore.onrender.com/api/getenquiry',{headers:{'Authorization':localStorage.getItem('token')}})
         .then((res)=>{
             setData(res.data)
         })

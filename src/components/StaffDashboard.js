@@ -23,7 +23,7 @@ const StaffDashboard = () => {
 
   React.useEffect(() => {
     axios
-      .get("http://localhost:3001/api/getservices", {
+      .get("https://unistore.onrender.com/api/getservices", {
         headers: { Authorization: localStorage.getItem("token") },
       })
       .then((res) => {

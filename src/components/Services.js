@@ -30,7 +30,7 @@ const Services = () => {
     } else {
       axios
         .patch(
-          `http://localhost:3001/api/updatepayment/${cellValues.row._id}`,
+          `https://unistore.onrender.com/api/updatepayment/${cellValues.row._id}`,
           { paymentStatus: "paid" },
           { headers: { Authorization: localStorage.getItem("token") } }
         )
@@ -62,7 +62,7 @@ const Services = () => {
       };
 
       const response = await fetch(
-        "http://localhost:3001/api/create-checkout-session",
+        "https://unistore.onrender.com/api/create-checkout-session",
         {
           method: "POST",
           headers: headers,
@@ -75,7 +75,7 @@ const Services = () => {
       if (body1.products) {
         axios
           .patch(
-            `http://localhost:3001/api/updateservice/${cellValues.row._id}`,
+            `https://unistore.onrender.com/api/updateservice/${cellValues.row._id}`,
             { paymentStatus: "paid" },
             { headers: { Authorization: localStorage.getItem("token") } }
           )
@@ -300,7 +300,7 @@ const Services = () => {
       });
     } else {
       axios
-        .post("http://localhost:3001/api/createnotification", {
+        .post("https://unistore.onrender.com/api/createnotification", {
           notification: "Service-Created",
           userid: globalData._id,
         })

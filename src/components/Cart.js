@@ -80,7 +80,7 @@ const Cart = () => {
     e.preventDefault();
     axios
       .patch(
-        `http://localhost:3001/api/updateproductscart/${userData._id}`,
+        `https://unistore.onrender.com/api/updateproductscart/${userData._id}`,
         updateAddress
       )
       .then((res) => {
@@ -138,7 +138,7 @@ const Cart = () => {
     };
 
     const response = await fetch(
-      "http://localhost:3001/api/create-checkout-session",
+      "https://unistore.onrender.com/api/create-checkout-session",
       {
         method: "POST",
         headers: headers,

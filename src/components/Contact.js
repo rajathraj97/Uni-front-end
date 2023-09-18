@@ -13,7 +13,7 @@ const Contact = () => {
 
   const Submit = (enquiry) => {
     axios
-      .post("http://localhost:3001/api/createenquiry", enquiry)
+      .post("https://unistore.onrender.com/api/createenquiry", enquiry)
       .then((res) => {
         if (res.data.hasOwnProperty("_id")) {
           setEnquiry({ name: "", email: "", description: "", number: 0 });

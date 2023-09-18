@@ -95,7 +95,7 @@ const Dashboard = () => {
 
   React.useEffect(() => {
     axios
-      .get("http://localhost:3001/api/getusers", {
+      .get("https://unistore.onrender.com/api/getusers", {
         headers: { Authorization: localStorage.getItem("token") },
       })
       .then((res) => {
@@ -105,7 +105,7 @@ const Dashboard = () => {
         console.log(err);
       });
     axios
-      .get("http://localhost:3001/api/getproduct")
+      .get("https://unistore.onrender.com/api/getproduct")
       .then((res) => {
         setProducts(res.data);
       })
@@ -116,7 +116,7 @@ const Dashboard = () => {
 
   React.useEffect(() => {
     axios
-      .get("http://localhost:3001/api/getservices", {
+      .get("https://unistore.onrender.com/api/getservices", {
         headers: { Authorization: localStorage.getItem("token") },
       })
       .then((res) => {
@@ -130,7 +130,7 @@ const Dashboard = () => {
 
   React.useEffect(() => {
     axios
-      .get("http://localhost:3001/api/getdata", {
+      .get("https://unistore.onrender.com/api/getdata", {
         headers: { Authorization: localStorage.getItem("token") },
       })
       .then((res) => {
