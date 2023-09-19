@@ -126,7 +126,7 @@ const SpareTable = () => {
       });
     axios.get("http://unistore.onrender.com/api/getdetails")
     .then((res)=>{
-      setAvg(res.data)
+      setAvg(res.data[0].avgstock)
     })
     .catch((err)=>{
       console.log(err)
