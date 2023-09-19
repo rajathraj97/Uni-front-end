@@ -188,7 +188,7 @@ const UserTable = () => {
 
   React.useEffect(() => {
     axios
-      .get("http://localhost:3001/api/getusers", {
+      .get("https://unistore.onrender.com/api/getusers", {
         headers: { Authorization: globalData.token },
       })
       .then((res) => {

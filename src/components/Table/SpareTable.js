@@ -7,6 +7,7 @@ import Swal from "sweetalert2";
 
 const SpareTable = () => {
   const [spares, setSpares] = React.useState([]);
+  const [avg,setAvg] = React.useState(0)
 
   const updateStock = async (cellValues) => {
     const { value: stock } = await Swal.fire({
@@ -123,10 +124,18 @@ const SpareTable = () => {
       .catch((err) => {
         console.log(err);
       });
+    axios.get("http://unistore.onrender.com/api/getdetails")
+    .then((res)=>{
+      setAvg(res.data)
+    })
+    .catch((err)=>{
+      console.log(err)
+    })
   }, []);
   return (
     <div>
       <Box sx={{ height: 400, width: "100%" }}>
+        average spare stock:{avg}
         <DataGrid
           rows={spares}
           columns={columns}
