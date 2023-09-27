@@ -56,7 +56,7 @@ import Swal from 'sweetalert2';
         confirmButtonText: 'Yes, delete it!'
       }).then((result) => {
         if (result.isConfirmed) {
-          axios.delete(`http://localhost:3001/api/deleteproduct/${cellValues.row._id}`,{headers:{'Authorization':localStorage.getItem('token')}})
+          axios.delete(`https://unistore.onrender.com/api/deleteproduct/${cellValues.row._id}`,{headers:{'Authorization':localStorage.getItem('token')}})
             .then((res)=>{
               console.log(res.data)
             })

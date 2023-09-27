@@ -98,6 +98,8 @@ export default function Navbar() {
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
 
+  console.log(search)
+
   React.useEffect(() => {
     axios
       .get("https://unistore.onrender.com/api/usersforname")

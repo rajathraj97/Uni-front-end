@@ -67,15 +67,15 @@ const Product = (props) =>{
     console.log(searchString,'searchString')
 
     React.useEffect(()=>{
-      if(searchString.length >= 2){
-      console.log(searchString,'in condition')
-      const result = products.filter((ele)=>{return ele.name.includes(searchString)})
+      if(searchString.length >= 4){
+      console.log(searchString,'in condition',typeof searchString)
+      const result = product.filter((ele)=>{return ele.name.includes(searchString)})
       console.log(result,'result')
-      if(result.length >= 1){
+      if(result.length > 0 ){
       setProducts(result)
     }
     }
-      else if(searchString === ""){
+      else if(searchString.length === 0){
         setProducts(product)
       }
     },[searchString])
@@ -84,10 +84,12 @@ const Product = (props) =>{
    
   React.useEffect(()=>{
     setSearch(props.search)
+    
   },[props.search])
 
   React.useEffect(()=>{
     dispatch(getItems())
+    
   },[localStorage.getItem('token')])
 
 
@@ -107,7 +109,7 @@ const Product = (props) =>{
       return state.item.products
      },[token])
 
-     useState(()=>{
+     React.useEffect(()=>{
       setProducts(product)
      },[])
 
@@ -260,7 +262,53 @@ const Product = (props) =>{
       
     <Box sx={{ width: '100%' }}>
     <Grid container rowSpacing={1} columnSpacing={{ xs: 3, sm: 6, md: 5 }}>
-      {product.map((product,i)=>{
+      {searchString.length >= 4 ? products.map((product,i)=>{
+        return  <Grid xs={2.4} key={i}>
+          
+        <Item><Paper elevation={9}> 
+        <Card sx={{ maxWidth: 355 }}>
+      <CardMedia
+        sx={{ height: 140 }}
+        image={product.image[0]}
+        title={product.name}
+      />
+      <CardContent>
+        <Typography gutterBottom variant="h5" component="div">
+          {product.name}
+        </Typography>
+        <Typography variant="body2" color="text.secondary">
+         {product.description}
+        </Typography>
+        <hr/>
+        <Typography variant="h5" color="black">
+         PRICE: ₹{product.price}
+        </Typography>
+        <hr/>
+        <Typography variant="body2" color="black">
+         Quantity: <select onChange={handelSelect}>
+          {limit.map((ele,i)=>{
+            return <option key={i} value={ele}>{ele}</option>
+          })}
+         </select>
+        </Typography>
+      </CardContent>
+      <CardActions>
+      
+      <Button variant="contained"  onClick={()=>{addProducts(product._id,globalData,quantity);handleClick()}} color='warning'>Add to Cart<AddShoppingCartIcon/></Button>
+      <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
+        <Alert onClose={handleClose} severity="success" sx={{ width: '100%' }}>
+          Added Product To cart
+        </Alert>
+      </Snackbar>
+      <Link to={`/product/${product._id}`} style={{textDecoration:"none"}}><Button variant="contained"  >View Product</Button></Link>
+      </CardActions>
+    </Card>
+        
+        </Paper>
+        </Item>
+        
+        </Grid>
+      }) : product.map((product,i)=>{
         return  <Grid xs={2.4} key={i}>
           
         <Item><Paper elevation={9}> 
